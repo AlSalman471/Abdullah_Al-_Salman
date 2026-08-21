@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Abdullah Al-Salman — Accounting and Information Systems student, researcher, data analyst and aspiring professional.">
+        content="Abdullah Al- Salman — Accounting and Information Systems student, researcher, data analyst and aspiring professional.">
 
-    <meta name="author" content="Abdullah Al-Salman">
+    <meta name="author" content="Abdullah Al- Salman">
 
-    <title>Abdullah Al-Salman | Researcher & Aspiring Professional</title>
+    <title>Abdullah Al- Salman | Researcher & Aspiring Professional</title>
 
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -21,14 +26,14 @@
         }
 
         :root {
-            --bg: #080b10;
+            --bg: #07090d;
+            --bg-light: #0d1118;
             --card: #10151d;
-            --card2: #151b24;
-            --text: #f5f7fa;
-            --muted: #9ca8b8;
-            --accent: #6ea8fe;
-            --accent2: #8b5cf6;
-            --border: rgba(255, 255, 255, 0.10);
+            --border: #252c36;
+            --text: #f4f4f5;
+            --muted: #9299a6;
+            --accent: #8ea9ff;
+            --accent2: #b8c7ff;
         }
 
         body {
@@ -43,9 +48,20 @@
             text-decoration: none;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+
         /* =========================
            NAVBAR
-        ========================== */
+        ========================= */
 
         nav {
             position: fixed;
@@ -54,27 +70,27 @@
             width: 100%;
             z-index: 1000;
 
-            background: rgba(8, 11, 16, 0.85);
+            background: rgba(7, 9, 13, 0.88);
             backdrop-filter: blur(15px);
 
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
         .nav-container {
-            max-width: 1200px;
+            width: min(1120px, 90%);
             margin: auto;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            height: 70px;
 
-            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
             font-size: 21px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -88,7 +104,7 @@
         }
 
         .nav-links a {
-            color: var(--muted);
+            color: #c9ced8;
             font-size: 14px;
             transition: 0.3s;
         }
@@ -97,28 +113,40 @@
             color: white;
         }
 
+
         /* =========================
            HERO
-        ========================== */
+        ========================= */
 
         .hero {
             min-height: 100vh;
 
-            max-width: 1200px;
-            margin: auto;
+            display: flex;
+            align-items: center;
 
-            padding: 150px 25px 80px;
+            padding-top: 90px;
+        }
 
+        .hero-grid {
             display: grid;
             grid-template-columns: 1.3fr 0.7fr;
-
+            gap: 80px;
             align-items: center;
-            gap: 60px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
+            font-family: Georgia, serif;
             font-size: clamp(45px, 7vw, 78px);
             line-height: 1.05;
+            letter-spacing: -3px;
             margin-bottom: 25px;
         }
 
@@ -126,49 +154,38 @@
             color: var(--accent);
         }
 
-        .hero-subtitle {
-            font-size: 22px;
-            color: #d6dce5;
-            margin-bottom: 20px;
-        }
-
-        .hero-description {
-            max-width: 650px;
+        .hero p {
             color: var(--muted);
+            max-width: 650px;
             font-size: 17px;
         }
 
         .hero-buttons {
-            margin-top: 30px;
-
+            margin-top: 35px;
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 22px;
-
+            padding: 12px 21px;
             border-radius: 8px;
-
             border: 1px solid var(--border);
-
             background: var(--card);
-
+            color: white;
             transition: 0.3s;
-
             font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #07111f;
-            font-weight: 700;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             border-color: var(--accent);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #080a0e;
+            border-color: white;
         }
 
         .profile-container {
@@ -177,350 +194,356 @@
         }
 
         .profile-image {
-            width: 320px;
-            max-width: 100%;
+            width: 300px;
+            height: 380px;
+            object-fit: cover;
 
             border-radius: 18px;
 
             border: 1px solid var(--border);
 
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
-
-            transition: 0.4s;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.5);
         }
 
-        .profile-image:hover {
-            transform: translateY(-8px);
-        }
 
         /* =========================
-           GENERAL SECTION
-        ========================== */
+           SECTIONS
+        ========================= */
 
         section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 100px 25px;
+            padding: 110px 0;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 10px;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
         }
 
         .section-title {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .section-line {
-            width: 55px;
-            height: 3px;
-
-            background: var(--accent);
-
+            font-family: Georgia, serif;
+            font-size: 42px;
             margin-bottom: 45px;
         }
 
-        .section-intro {
+        .section-description {
             color: var(--muted);
             max-width: 750px;
             margin-bottom: 40px;
         }
 
+
         /* =========================
            ABOUT
-        ========================== */
+        ========================= */
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 50px;
         }
 
-        .info-card {
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 14px;
-
+        .about-box {
             padding: 30px;
-
-            transition: 0.3s;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(110, 168, 254, 0.4);
-        }
-
-        .info-card h3 {
+        .about-box h3 {
             margin-bottom: 15px;
-            color: var(--accent);
+            font-family: Georgia, serif;
         }
 
-        .info-card p {
+        .about-box p {
             color: var(--muted);
         }
 
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 9px 15px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: #cbd1dc;
+            font-size: 13px;
+        }
+
+
         /* =========================
            RESEARCH
-        ========================== */
+        ========================= */
 
         .research-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
+            gap: 20px;
         }
 
         .research-card {
             background: var(--card);
-
             border: 1px solid var(--border);
-
-            border-radius: 14px;
-
+            border-radius: 15px;
             padding: 28px;
 
             transition: 0.3s;
         }
 
         .research-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
+            transform: translateY(-5px);
+            border-color: #3d4654;
         }
 
         .research-card h3 {
-            font-size: 20px;
-            margin-bottom: 14px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
         .research-card p {
             color: var(--muted);
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
-        .research-link {
+        .paper-link {
             color: var(--accent);
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 13px;
         }
+
+        .paper-link:hover {
+            text-decoration: underline;
+        }
+
 
         /* =========================
            CERTIFICATES
-        ========================== */
+        ========================= */
 
         .certificate-grid {
             display: grid;
-
             grid-template-columns: repeat(2, 1fr);
-
             gap: 30px;
         }
 
         .certificate-card {
             background: var(--card);
-
             border: 1px solid var(--border);
-
-            border-radius: 16px;
-
+            border-radius: 15px;
             overflow: hidden;
 
             transition: 0.35s;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-7px);
-
-            border-color: rgba(110, 168, 254, 0.5);
-
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .certificate-image {
-            width: 100%;
-            height: 380px;
-
-            object-fit: contain;
-
-            display: block;
-
-            background: #0c1016;
 
             cursor: pointer;
         }
 
+        .certificate-card:hover {
+            transform: translateY(-7px);
+            border-color: #4b5665;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+        /*
+           IMPORTANT:
+           All certificate images use EXACT filenames
+           from your GitHub folder.
+        */
+
+        .certificate-image-wrapper {
+            width: 100%;
+            height: 360px;
+
+            background: #080b10;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            transition: transform 0.4s;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.025);
+        }
+
         .certificate-info {
-            padding: 25px;
+            padding: 24px;
         }
 
         .certificate-year {
-            color: #718096;
+            color: var(--accent);
+            font-size: 10px;
             letter-spacing: 4px;
-            font-size: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .certificate-info h3 {
-            font-size: 23px;
+            font-family: Georgia, serif;
+            font-size: 21px;
             margin-bottom: 8px;
         }
 
         .certificate-info p {
             color: var(--muted);
+            font-size: 13px;
         }
 
-        /* =========================
-           GOOGLE DRIVE
-        ========================== */
-
         .drive-card {
-            margin-top: 40px;
+            margin-top: 30px;
 
-            background: linear-gradient(
-                135deg,
-                rgba(110, 168, 254, 0.12),
-                rgba(139, 92, 246, 0.10)
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(142,169,255,0.10),
+                    rgba(255,255,255,0.02)
+                );
 
             border: 1px solid var(--border);
+            border-radius: 15px;
 
-            border-radius: 16px;
+            padding: 30px;
 
-            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            text-align: center;
+            gap: 25px;
         }
 
         .drive-card h3 {
-            font-size: 25px;
-            margin-bottom: 10px;
+            font-family: Georgia, serif;
+            margin-bottom: 5px;
         }
 
         .drive-card p {
             color: var(--muted);
-            margin-bottom: 25px;
-        }
-
-        .drive-button {
-            display: inline-block;
-
-            padding: 13px 25px;
-
-            border-radius: 8px;
-
-            background: var(--accent);
-
-            color: #07111f;
-
-            font-weight: 700;
-        }
-
-        /* =========================
-           SKILLS
-        ========================== */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            padding: 9px 16px;
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 30px;
-
-            color: #cbd5e1;
-
             font-size: 14px;
-
-            transition: 0.3s;
         }
 
-        .skill:hover {
-            background: var(--accent);
-            color: #07111f;
-        }
 
         /* =========================
-           CONTACT
-        ========================== */
+           SOCIAL
+        ========================= */
 
-        .contact-grid {
+        .social-grid {
             display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 18px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
         }
 
-        .contact-card {
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 13px;
-
+        .social-card {
             padding: 22px;
 
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            text-align: center;
+
             transition: 0.3s;
         }
 
-        .contact-card:hover {
+        .social-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
         }
 
-        .contact-card h3 {
-            margin-bottom: 7px;
+        .social-card strong {
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .contact-card p {
+        .social-card span {
             color: var(--muted);
-            font-size: 14px;
+            font-size: 12px;
         }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            padding: 50px;
+
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
 
         /* =========================
            FOOTER
-        ========================== */
+        ========================= */
 
         footer {
             border-top: 1px solid var(--border);
-
-            text-align: center;
-
-            padding: 35px 20px;
+            padding: 30px 0;
 
             color: var(--muted);
-
-            font-size: 14px;
+            font-size: 12px;
+            text-align: center;
         }
+
 
         /* =========================
            IMAGE MODAL
-        ========================== */
+        ========================= */
 
         .modal {
-            display: none;
-
             position: fixed;
+            inset: 0;
 
-            z-index: 2000;
+            background: rgba(0,0,0,0.92);
 
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0, 0, 0, 0.92);
+            display: none;
 
             align-items: center;
             justify-content: center;
 
+            z-index: 2000;
+
             padding: 30px;
+        }
+
+        .modal.active {
+            display: flex;
         }
 
         .modal img {
@@ -529,25 +552,27 @@
 
             object-fit: contain;
 
-            border-radius: 8px;
+            border-radius: 5px;
         }
 
-        .close {
+        .modal-close {
             position: absolute;
-
-            top: 20px;
+            top: 25px;
             right: 35px;
-
-            font-size: 45px;
 
             color: white;
 
+            font-size: 40px;
+
             cursor: pointer;
+
+            line-height: 1;
         }
+
 
         /* =========================
            RESPONSIVE
-        ========================== */
+        ========================= */
 
         @media (max-width: 850px) {
 
@@ -555,15 +580,12 @@
                 display: none;
             }
 
-            .hero {
+            .hero-grid {
                 grid-template-columns: 1fr;
-
                 text-align: center;
-
-                padding-top: 130px;
             }
 
-            .hero-description {
+            .hero p {
                 margin: auto;
             }
 
@@ -576,7 +598,8 @@
             }
 
             .profile-image {
-                width: 260px;
+                width: 240px;
+                height: 310px;
             }
 
             .about-grid,
@@ -585,21 +608,53 @@
                 grid-template-columns: 1fr;
             }
 
-            .contact-grid {
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .drive-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .certificate-image-wrapper {
+                height: 260px;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .social-grid {
                 grid-template-columns: 1fr;
             }
         }
+
     </style>
+
 </head>
 
 
 <body>
 
+
     <!-- =========================
          NAVIGATION
-    ========================== -->
+    ========================= -->
 
     <nav>
+
         <div class="nav-container">
 
             <a href="#home" class="logo">
@@ -607,700 +662,798 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#research">Research</a>
+                </li>
+
+                <li>
+                    <a href="#certificates">Certificates</a>
+                </li>
+
+                <li>
+                    <a href="#connect">Connect</a>
+                </li>
+
             </ul>
 
         </div>
+
     </nav>
+
 
 
     <!-- =========================
          HERO
-    ========================== -->
+    ========================= -->
 
-    <header class="hero" id="home">
+    <main id="home">
 
-        <div>
+        <section class="hero">
 
-            <p class="hero-subtitle">
-                Accounting & Information Systems Student
-            </p>
+            <div class="container hero-grid">
 
-            <h1>
-                Abdullah <span>Al- Salman</span>
-            </h1>
+                <div>
 
-            <p class="hero-description">
-                Researcher, data analyst and aspiring professional with
-                interests in accounting, finance, data analytics,
-                corporate governance and research.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#research" class="btn btn-primary">
-                    Explore My Research
-                </a>
-
-                <a href="#certificates" class="btn">
-                    View Certificates
-                </a>
-
-                <a href="https://github.com/AlSalman471"
-                   target="_blank"
-                   class="btn">
-                    GitHub
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="profile-container">
-
-            <img
-                src="profile-formal.png"
-                alt="Abdullah Al- Salman"
-                class="profile-image"
-            >
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section id="about">
-
-        <h2 class="section-title">
-            About Me
-        </h2>
-
-        <div class="section-line"></div>
-
-        <p class="section-intro">
-            I am an Accounting and Information Systems student at the
-            University of Rajshahi with an interest in research,
-            accounting, finance, data analysis and technology.
-        </p>
-
-
-        <div class="about-grid">
-
-            <div class="info-card">
-
-                <h3>Academic Interest</h3>
-
-                <p>
-                    My academic interests include accounting,
-                    financial performance, corporate governance,
-                    sustainability, banking and empirical research.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <h3>Research Interest</h3>
-
-                <p>
-                    I am interested in quantitative research,
-                    statistical analysis, corporate governance,
-                    financial data analysis and the relationship
-                    between business practices and firm performance.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <h3>Data & Analytics</h3>
-
-                <p>
-                    I work with statistical and data-analysis tools
-                    and am developing skills in Python, machine
-                    learning, SPSS, Stata and data visualization.
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <h3>Professional Development</h3>
-
-                <p>
-                    I actively participate in academic conferences,
-                    competitions, leadership programs, seminars and
-                    professional development activities.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         RESEARCH
-    ========================== -->
-
-    <section id="research">
-
-        <h2 class="section-title">
-            Research & Publications
-        </h2>
-
-        <div class="section-line"></div>
-
-        <p class="section-intro">
-            Selected research papers and conference work.
-        </p>
-
-
-        <div class="research-grid">
-
-
-            <!-- Paper 1 -->
-
-            <div class="research-card">
-
-                <h3>
-                    The Role of Knowledge Assets in Boosting Bank Performance:
-                    Evidence from Bangladesh
-                </h3>
-
-                <p>
-                    Research on the relationship between knowledge assets
-                    and bank performance in Bangladesh.
-                </p>
-
-                <a
-                    href="https://www.researchgate.net/publication/398113377_The_Role_of_Knowledge_Assets_in_Boosting_Bank_Performance_Evidence_from_Bangladesh"
-                    target="_blank"
-                    class="research-link"
-                >
-                    View on ResearchGate →
-                </a>
-
-            </div>
-
-
-            <!-- Paper 2 -->
-
-            <div class="research-card">
-
-                <h3>
-                    Impact of CSR Practices on Customer Loyalty in Bangladesh:
-                    A Study on the Banking Sector
-                </h3>
-
-                <p>
-                    Research examining the impact of corporate social
-                    responsibility practices on customer loyalty.
-                </p>
-
-                <a
-                    href="https://www.researchgate.net/publication/405494508_Impact_of_CSR_Practices_on_Customer_Loyalty_in_Bangladesh_A_Study_on_the_Banking_Sector"
-                    target="_blank"
-                    class="research-link"
-                >
-                    View on ResearchGate →
-                </a>
-
-            </div>
-
-
-            <!-- Paper 3 -->
-
-            <div class="research-card">
-
-                <h3>
-                    Expenses on Intangible Assets and Financial Performance
-                    of Listed Pharmaceuticals Companies in Bangladesh:
-                    An Empirical Investigation
-                </h3>
-
-                <p>
-                    Empirical investigation into intangible asset expenses
-                    and financial performance of listed pharmaceutical
-                    companies in Bangladesh.
-                </p>
-
-                <a
-                    href="https://www.researchgate.net/publication/387906743_Expenses_on_Intangible_Assets_and_Financial_Performance_of_Listed_Pharmaceuticals_Companies_in_Bangladesh_An_Empirical_Investigation"
-                    target="_blank"
-                    class="research-link"
-                >
-                    View on ResearchGate →
-                </a>
-
-            </div>
-
-
-            <!-- Paper 4 -->
-
-            <div class="research-card">
-
-                <h3>
-                    Factors Affecting Accounting Software Learning Environment
-                    in Public Universities in Bangladesh
-                </h3>
-
-                <p>
-                    Conference research focusing on factors affecting
-                    accounting software learning environments in
-                    public universities.
-                </p>
-
-                <a
-                    href="https://www.researchgate.net/publication/405494604_Factors_Affecting_Accounting_Software_Learning_Environment_in_Public_Universities_in_Bangladesh"
-                    target="_blank"
-                    class="research-link"
-                >
-                    View on ResearchGate →
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CERTIFICATES
-    ========================== -->
-
-    <section id="certificates">
-
-        <h2 class="section-title">
-            Certificates & Achievements
-        </h2>
-
-        <div class="section-line"></div>
-
-        <p class="section-intro">
-            Selected certificates and achievements. Click any certificate
-            to view it in a larger format.
-        </p>
-
-
-        <div class="certificate-grid">
-
-
-            <!-- Certificate 1 -->
-
-            <div class="certificate-card">
-
-                <img
-                    src="certificate-aspire-leaders-2025.png"
-                    alt="Aspire Leaders 2025 Certificate"
-                    class="certificate-image"
-                    onclick="openModal(this.src)"
-                >
-
-                <div class="certificate-info">
-
-                    <div class="certificate-year">
-                        2025
+                    <div class="eyebrow">
+                        Researcher · Data Analyst · Aspiring Professional
                     </div>
 
-                    <h3>
-                        Aspire Leaders 2025
-                    </h3>
+                    <h1>
+                        Abdullah <span>Al- Salman</span>
+                    </h1>
 
                     <p>
-                        Leadership & Professional Development
+                        Accounting and Information Systems student at the
+                        University of Rajshahi with interests in research,
+                        data analysis, accounting, finance, corporate
+                        governance and technology.
                     </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#research" class="btn btn-primary">
+                            Explore My Research
+                        </a>
+
+                        <a href="#certificates" class="btn">
+                            View Certificates
+                        </a>
+
+                        <a href="https://github.com/AlSalman471"
+                           target="_blank"
+                           class="btn">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-container">
+
+                    <!-- EXACT PROFILE FILE NAME -->
+
+                    <img
+                        src="profile-formal.png"
+                        alt="Abdullah Al- Salman"
+                        class="profile-image"
+                    >
 
                 </div>
 
             </div>
 
+        </section>
 
-            <!-- Certificate 2 -->
 
-            <div class="certificate-card">
 
-                <img
-                    src="achievement-case-competition-runner-up-2024.jpeg"
-                    alt="Case Competition Runner-Up Certificate"
-                    class="certificate-image"
-                    onclick="openModal(this.src)"
-                >
+        <!-- =========================
+             ABOUT
+        ========================= -->
 
-                <div class="certificate-info">
+        <section id="about">
 
-                    <div class="certificate-year">
-                        2024
+            <div class="container">
+
+                <div class="section-number">
+                    01 — PROFILE
+                </div>
+
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+                <div class="about-grid">
+
+                    <div class="about-box">
+
+                        <h3>
+                            Academic & Professional Interests
+                        </h3>
+
+                        <p>
+                            I am an Accounting and Information Systems student
+                            interested in accounting, finance, corporate
+                            governance, sustainability, research methodology
+                            and data-driven decision making.
+                        </p>
+
                     </div>
 
-                    <h3>
-                        Case Competition Runner-Up
+
+                    <div class="about-box">
+
+                        <h3>
+                            Research & Data
+                        </h3>
+
+                        <p>
+                            My research interests include corporate
+                            performance, CSR, knowledge assets, accounting
+                            education, financial performance and empirical
+                            data analysis.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div style="margin-top:40px;">
+
+                    <h3 style="margin-bottom:18px;">
+                        Areas & Skills
                     </h3>
 
-                    <p>
-                        Business Case Competition Achievement
-                    </p>
+                    <div class="skills">
+
+                        <span class="skill">Accounting</span>
+
+                        <span class="skill">Finance</span>
+
+                        <span class="skill">Research</span>
+
+                        <span class="skill">Data Analysis</span>
+
+                        <span class="skill">IBM SPSS</span>
+
+                        <span class="skill">Python</span>
+
+                        <span class="skill">Machine Learning</span>
+
+                        <span class="skill">Stata</span>
+
+                        <span class="skill">Corporate Governance</span>
+
+                        <span class="skill">CSR</span>
+
+                        <span class="skill">Sustainability</span>
+
+                        <span class="skill">Microsoft Office</span>
+
+                    </div>
 
                 </div>
 
             </div>
 
+        </section>
 
-            <!-- Certificate 3 -->
 
-            <div class="certificate-card">
 
-                <img
-                    src="certificate-english-olympiad-leadership-2025.jpeg"
-                    alt="English Olympiad Leadership 2025 Certificate"
-                    class="certificate-image"
-                    onclick="openModal(this.src)"
-                >
+        <!-- =========================
+             RESEARCH
+        ========================= -->
 
-                <div class="certificate-info">
+        <section id="research">
 
-                    <div class="certificate-year">
-                        2025
-                    </div>
+            <div class="container">
 
-                    <h3>
-                        English Olympiad Leadership 2025
-                    </h3>
+                <div class="section-number">
+                    02 — RESEARCH
+                </div>
 
-                    <p>
-                        Leadership — English Olympiad Selection Round
-                    </p>
+                <h2 class="section-title">
+                    Research & Publications
+                </h2>
+
+                <p class="section-description">
+                    Selected research papers and conference contributions.
+                    Click any paper to open its ResearchGate page.
+                </p>
+
+
+                <div class="research-grid">
+
+
+                    <!-- PAPER 01 -->
+
+                    <article class="research-card">
+
+                        <h3>
+                            The Role of Knowledge Assets in Boosting Bank
+                            Performance: Evidence from Bangladesh
+                        </h3>
+
+                        <p>
+                            An empirical study examining the relationship
+                            between knowledge assets and bank performance
+                            in Bangladesh.
+                        </p>
+
+                        <a
+                            href="https://www.researchgate.net/publication/398113377_The_Role_of_Knowledge_Assets_in_Boosting_Bank_Performance_Evidence_from_Bangladesh"
+                            target="_blank"
+                            class="paper-link"
+                        >
+                            View on ResearchGate →
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PAPER 02 -->
+
+                    <article class="research-card">
+
+                        <h3>
+                            Impact of CSR Practices on Customer Loyalty
+                            in Bangladesh: A Study on the Banking Sector
+                        </h3>
+
+                        <p>
+                            Research examining how corporate social
+                            responsibility practices influence customer
+                            loyalty in the banking sector.
+                        </p>
+
+                        <a
+                            href="https://www.researchgate.net/publication/405494508_Impact_of_CSR_Practices_on_Customer_Loyalty_in_Bangladesh_A_Study_on_the_Banking_Sector"
+                            target="_blank"
+                            class="paper-link"
+                        >
+                            View on ResearchGate →
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PAPER 03 -->
+
+                    <article class="research-card">
+
+                        <h3>
+                            Expenses on Intangible Assets and Financial
+                            Performance of Listed Pharmaceuticals Companies
+                            in Bangladesh: An Empirical Investigation
+                        </h3>
+
+                        <p>
+                            An empirical investigation of intangible asset
+                            expenditure and financial performance among
+                            listed pharmaceutical companies in Bangladesh.
+                        </p>
+
+                        <a
+                            href="https://www.researchgate.net/publication/387906743_Expenses_on_Intangible_Assets_and_Financial_Performance_of_Listed_Pharmaceuticals_Companies_in_Bangladesh_An_Empirical_Investigation"
+                            target="_blank"
+                            class="paper-link"
+                        >
+                            View on ResearchGate →
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PAPER 04 -->
+
+                    <article class="research-card">
+
+                        <h3>
+                            Factors Affecting Accounting Software Learning
+                            Environment in Public Universities in Bangladesh
+                        </h3>
+
+                        <p>
+                            A conference research paper investigating factors
+                            associated with accounting software learning
+                            environments in public universities.
+                        </p>
+
+                        <a
+                            href="https://www.researchgate.net/publication/405494604_Factors_Affecting_Accounting_Software_Learning_Environment_in_Public_Universities_in_Bangladesh"
+                            target="_blank"
+                            class="paper-link"
+                        >
+                            View on ResearchGate →
+                        </a>
+
+                    </article>
 
                 </div>
 
             </div>
 
+        </section>
 
-            <!-- Certificate 4 -->
 
-            <div class="certificate-card">
 
-                <img
-                    src="certificate-aptis-english-2023.jpg"
-                    alt="APTIS English 2023 Certificate"
-                    class="certificate-image"
-                    onclick="openModal(this.src)"
-                >
+        <!-- =========================
+             CERTIFICATES
+        ========================= -->
 
-                <div class="certificate-info">
+        <section id="certificates">
 
-                    <div class="certificate-year">
-                        2023
+            <div class="container">
+
+                <div class="section-number">
+                    03 — ACHIEVEMENTS
+                </div>
+
+                <h2 class="section-title">
+                    Certificates
+                </h2>
+
+                <p class="section-description">
+                    Selected certificates and achievements. Click any
+                    certificate to view it in full size.
+                </p>
+
+
+                <div class="certificate-grid">
+
+
+                    <!-- =====================
+                         CERTIFICATE 01
+                         EXACT FILE:
+                         certificate-aspire-leaders-2025.png
+                    ====================== -->
+
+                    <div
+                        class="certificate-card"
+                        onclick="openCertificate('certificate-aspire-leaders-2025.png')"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="certificate-aspire-leaders-2025.png"
+                                alt="Aspire Leaders 2025 Certificate"
+                                class="certificate-image"
+                            >
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <div class="certificate-year">
+                                2025
+                            </div>
+
+                            <h3>
+                                Aspire Leaders 2025
+                            </h3>
+
+                            <p>
+                                Leadership & Professional Development
+                            </p>
+
+                        </div>
+
                     </div>
 
-                    <h3>
-                        APTIS English 2023
-                    </h3>
 
-                    <p>
-                        English Language Achievement
-                    </p>
+
+                    <!-- =====================
+                         CERTIFICATE 02
+                         EXACT FILE:
+                         achievement-case-competition-runner-up-2024.jpeg
+                    ====================== -->
+
+                    <div
+                        class="certificate-card"
+                        onclick="openCertificate('achievement-case-competition-runner-up-2024.jpeg')"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="achievement-case-competition-runner-up-2024.jpeg"
+                                alt="Case Competition Runner-Up 2024 Certificate"
+                                class="certificate-image"
+                            >
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <div class="certificate-year">
+                                2024
+                            </div>
+
+                            <h3>
+                                Case Competition Runner-Up
+                            </h3>
+
+                            <p>
+                                Business Case Competition Achievement
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================
+                         CERTIFICATE 03
+                         EXACT FILE:
+                         certificate-english-olympiad-leadership-2025.jpeg
+                    ====================== -->
+
+                    <div
+                        class="certificate-card"
+                        onclick="openCertificate('certificate-english-olympiad-leadership-2025.jpeg')"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="certificate-english-olympiad-leadership-2025.jpeg"
+                                alt="English Olympiad Leadership 2025 Certificate"
+                                class="certificate-image"
+                            >
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <div class="certificate-year">
+                                2025
+                            </div>
+
+                            <h3>
+                                English Olympiad Leadership
+                            </h3>
+
+                            <p>
+                                Leadership & English Language Development
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================
+                         CERTIFICATE 04
+                         EXACT FILE:
+                         certificate-aptis-english-2023.jpg
+                    ====================== -->
+
+                    <div
+                        class="certificate-card"
+                        onclick="openCertificate('certificate-aptis-english-2023.jpg')"
+                    >
+
+                        <div class="certificate-image-wrapper">
+
+                            <img
+                                src="certificate-aptis-english-2023.jpg"
+                                alt="APTIS English 2023 Certificate"
+                                class="certificate-image"
+                            >
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <div class="certificate-year">
+                                2023
+                            </div>
+
+                            <h3>
+                                APTIS English
+                            </h3>
+
+                            <p>
+                                English Language Certification
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================
+                     GOOGLE DRIVE
+                ========================= -->
+
+                <div class="drive-card">
+
+                    <div>
+
+                        <h3>
+                            More Certificates
+                        </h3>
+
+                        <p>
+                            View the complete collection of my certificates
+                            and achievements on Google Drive.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1hN9_bZM-fWgaURA8w9t7F624gqouabFr?usp=drive_link"
+                        target="_blank"
+                        class="btn btn-primary"
+                    >
+                        View All Certificates →
+                    </a>
 
                 </div>
 
             </div>
 
+        </section>
 
-        </div>
 
 
-        <!-- GOOGLE DRIVE -->
+        <!-- =========================
+             CONNECT
+        ========================= -->
 
-        <div class="drive-card">
+        <section id="connect">
 
-            <h3>
-                More Certificates
-            </h3>
+            <div class="container">
 
-            <p>
-                Additional certificates and achievements are available
-                in my Google Drive certificate archive.
-            </p>
+                <div class="section-number">
+                    04 — CONNECT
+                </div>
 
-            <a
-                href="https://drive.google.com/drive/folders/1hN9_bZM-fWgaURA8w9t7F624gqouabFr?usp=drive_link"
-                target="_blank"
-                class="drive-button"
-            >
-                View All Certificates →
-            </a>
+                <h2 class="section-title">
+                    Find Me Online
+                </h2>
 
-        </div>
 
-    </section>
+                <div class="social-grid">
 
 
-    <!-- =========================
-         SKILLS
-    ========================== -->
+                    <a
+                        href="https://github.com/AlSalman471"
+                        target="_blank"
+                        class="social-card"
+                    >
 
-    <section id="skills">
+                        <strong>GitHub</strong>
 
-        <h2 class="section-title">
-            Skills & Interests
-        </h2>
+                        <span>
+                            Projects & Code
+                        </span>
 
-        <div class="section-line"></div>
+                    </a>
 
 
-        <div class="skills">
+                    <a
+                        href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
+                        target="_blank"
+                        class="social-card"
+                    >
 
-            <span class="skill">Accounting</span>
+                        <strong>ResearchGate</strong>
 
-            <span class="skill">Financial Analysis</span>
+                        <span>
+                            Research & Publications
+                        </span>
 
-            <span class="skill">Data Analysis</span>
+                    </a>
 
-            <span class="skill">Research</span>
 
-            <span class="skill">SPSS</span>
+                    <a
+                        href="https://www.facebook.com/abdullah.alsalman.5439"
+                        target="_blank"
+                        class="social-card"
+                    >
 
-            <span class="skill">Stata</span>
+                        <strong>Facebook</strong>
 
-            <span class="skill">Python</span>
+                        <span>
+                            Social Profile
+                        </span>
 
-            <span class="skill">Machine Learning</span>
+                    </a>
 
-            <span class="skill">Microsoft Excel</span>
 
-            <span class="skill">Statistical Analysis</span>
+                    <a
+                        href="https://www.instagram.com/_salman82?igsi=MTVmM2NqODQ2YWF0cg=="
+                        target="_blank"
+                        class="social-card"
+                    >
 
-            <span class="skill">Corporate Governance</span>
+                        <strong>Instagram</strong>
 
-            <span class="skill">Sustainability</span>
+                        <span>
+                            Personal Profile
+                        </span>
 
-            <span class="skill">Financial Reporting</span>
+                    </a>
 
-            <span class="skill">Academic Research</span>
 
-            <span class="skill">Data Visualization</span>
+                    <a
+                        href="https://wa.me/+8801849862186"
+                        target="_blank"
+                        class="social-card"
+                    >
 
-            <span class="skill">Leadership</span>
+                        <strong>WhatsApp</strong>
 
-        </div>
+                        <span>
+                            Direct Contact
+                        </span>
 
-    </section>
+                    </a>
 
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
+                </div>
 
-    <section id="contact">
 
-        <h2 class="section-title">
-            Connect With Me
-        </h2>
+                <div style="margin-top:40px;">
 
-        <div class="section-line"></div>
+                    <div class="contact-box">
 
-        <div class="contact-grid">
+                        <h2>
+                            Let's Connect
+                        </h2>
 
+                        <p>
+                            Interested in research, collaboration,
+                            data analysis or professional opportunities?
+                        </p>
 
-            <!-- Facebook -->
+                        <a
+                            href="https://wa.me/+8801849862186"
+                            target="_blank"
+                            class="btn btn-primary"
+                        >
+                            Contact Me on WhatsApp
+                        </a>
 
-            <a
-                href="https://www.facebook.com/abdullah.alsalman.5439"
-                target="_blank"
-                class="contact-card"
-            >
+                    </div>
 
-                <h3>Facebook</h3>
+                </div>
 
-                <p>
-                    Connect with me on Facebook
-                </p>
+            </div>
 
-            </a>
+        </section>
 
+    </main>
 
-            <!-- Instagram -->
-
-            <a
-                href="https://www.instagram.com/_salman82?igsi=MTVmM2NqODQ2YWF0cg=="
-                target="_blank"
-                class="contact-card"
-            >
-
-                <h3>Instagram</h3>
-
-                <p>
-                    Follow me on Instagram
-                </p>
-
-            </a>
-
-
-            <!-- WhatsApp -->
-
-            <a
-                href="https://wa.me/+8801849862186"
-                target="_blank"
-                class="contact-card"
-            >
-
-                <h3>WhatsApp</h3>
-
-                <p>
-                    Contact me directly
-                </p>
-
-            </a>
-
-
-            <!-- GitHub -->
-
-            <a
-                href="https://github.com/AlSalman471"
-                target="_blank"
-                class="contact-card"
-            >
-
-                <h3>GitHub</h3>
-
-                <p>
-                    Explore my projects and code
-                </p>
-
-            </a>
-
-
-            <!-- ResearchGate -->
-
-            <a
-                href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
-                target="_blank"
-                class="contact-card"
-            >
-
-                <h3>ResearchGate</h3>
-
-                <p>
-                    View my research profile
-                </p>
-
-            </a>
-
-
-            <!-- Google Drive -->
-
-            <a
-                href="https://drive.google.com/drive/folders/1hN9_bZM-fWgaURA8w9t7F624gqouabFr?usp=drive_link"
-                target="_blank"
-                class="contact-card"
-            >
-
-                <h3>Certificate Archive</h3>
-
-                <p>
-                    View additional certificates
-                </p>
-
-            </a>
-
-
-        </div>
-
-    </section>
 
 
     <!-- =========================
          FOOTER
-    ========================== -->
+    ========================= -->
 
     <footer>
 
-        <p>
-            © 2026 Abdullah Al- Salman. All rights reserved.
-        </p>
+        <div class="container">
 
-        <p>
-            Researcher · Data Analyst · Accounting & Information Systems
-        </p>
+            © <span id="year"></span>
+            Abdullah Al- Salman.
+            All rights reserved.
+
+        </div>
 
     </footer>
 
 
+
     <!-- =========================
-         IMAGE MODAL
-    ========================== -->
+         CERTIFICATE MODAL
+    ========================= -->
 
-    <div class="modal" id="imageModal">
+    <div
+        class="modal"
+        id="certificateModal"
+        onclick="closeCertificate(event)"
+    >
 
-        <span class="close" onclick="closeModal()">
-            &times;
-        </span>
+        <div
+            class="modal-close"
+            onclick="closeCertificate()"
+        >
+            ×
+        </div>
 
-        <img id="modalImage" src="" alt="Certificate Preview">
+        <img
+            id="modalImage"
+            src=""
+            alt="Certificate Preview"
+        >
 
     </div>
 
 
+
     <!-- =========================
          JAVASCRIPT
-    ========================== -->
+    ========================= -->
 
     <script>
 
-        function openModal(imageSource) {
+        /* Current year */
 
-            const modal = document.getElementById("imageModal");
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-            const modalImage = document.getElementById("modalImage");
 
-            modalImage.src = imageSource;
 
-            modal.style.display = "flex";
+        /* Certificate full-screen preview */
+
+        function openCertificate(imagePath) {
+
+            const modal =
+                document.getElementById("certificateModal");
+
+            const modalImage =
+                document.getElementById("modalImage");
+
+            modalImage.src = imagePath;
+
+            modal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
         }
 
 
-        function closeModal() {
 
-            document.getElementById("imageModal").style.display = "none";
+        function closeCertificate(event) {
 
-        }
-
-
-        window.onclick = function(event) {
-
-            const modal = document.getElementById("imageModal");
-
-            if (event.target === modal) {
-
-                closeModal();
-
+            if (
+                event &&
+                event.target &&
+                event.target.id !== "certificateModal" &&
+                !event.target.classList.contains("modal-close")
+            ) {
+                return;
             }
 
+            const modal =
+                document.getElementById("certificateModal");
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "auto";
         }
 
+
+
+        /* ESC key closes certificate */
 
         document.addEventListener("keydown", function(event) {
 
             if (event.key === "Escape") {
 
-                closeModal();
+                const modal =
+                    document.getElementById("certificateModal");
 
+                modal.classList.remove("active");
+
+                document.body.style.overflow = "auto";
             }
 
         });
