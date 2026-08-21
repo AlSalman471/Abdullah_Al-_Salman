@@ -2,642 +2,2059 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Abdullah Al- Salman — Accounting and Information Systems student, researcher, data analyst and aspiring professional.">
+    <meta
+        name="description"
+        content="Abdullah Al- Salman — Accounting and Information Systems student, researcher, data analyst and aspiring professional."
+    >
 
-    <meta name="author" content="Abdullah Al- Salman">
+    <meta
+        name="author"
+        content="Abdullah Al- Salman"
+    >
 
-    <title>Abdullah Al- Salman | Researcher & Aspiring Professional</title>
+    <meta
+        name="keywords"
+        content="Abdullah Al- Salman, researcher, accounting, information systems, data analyst, Bangladesh, corporate governance, research"
+    >
+
+    <title>
+        Abdullah Al- Salman | Researcher & Aspiring Professional
+    </title>
+
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================
+         FONT AWESOME
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
 
     <style>
 
-        /* =========================
-           GLOBAL
-        ========================= */
+        /* =========================================
+           ROOT VARIABLES
+        ========================================= */
+
+        :root {
+
+            --bg: #080a0f;
+            --bg-secondary: #0d1017;
+            --card: #11151d;
+            --card-hover: #151a23;
+
+            --text: #f5f7fa;
+            --text-secondary: #a8b0bd;
+            --text-muted: #707987;
+
+            --border: rgba(255, 255, 255, 0.09);
+
+            --accent: #ffffff;
+            --accent-soft: rgba(255, 255, 255, 0.08);
+
+            --max-width: 1240px;
+
+            --transition: 0.35s ease;
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+
+        html {
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #07090d;
-            --bg-light: #0d1118;
-            --card: #10151d;
-            --border: #252c36;
-            --text: #f4f4f5;
-            --muted: #9299a6;
-            --accent: #8ea9ff;
-            --accent2: #b8c7ff;
-        }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family: "Inter", sans-serif;
+
             background: var(--bg);
+
             color: var(--text);
+
             line-height: 1.7;
+
+            overflow-x: hidden;
         }
+
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
+
         img {
             max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: auto;
         }
 
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        button {
+            font-family: inherit;
+        }
 
-        nav {
+
+        /* =========================================
+           CUSTOM SCROLLBAR
+        ========================================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #303640;
+            border-radius: 20px;
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a515d;
+        }
+
+
+        /* =========================================
+           PAGE LOADER
+        ========================================= */
+
+        #page-loader {
+
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
 
-            background: rgba(7, 9, 13, 0.88);
-            backdrop-filter: blur(15px);
+            inset: 0;
 
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
+            z-index: 99999;
 
-        .nav-container {
-            width: min(1120px, 90%);
-            margin: auto;
-
-            height: 70px;
+            background: var(--bg);
 
             display: flex;
+
             align-items: center;
+
+            justify-content: center;
+
+            transition: opacity 0.6s ease,
+                        visibility 0.6s ease;
+        }
+
+
+        #page-loader.hidden {
+
+            opacity: 0;
+
+            visibility: hidden;
+        }
+
+
+        .loader-content {
+            text-align: center;
+        }
+
+
+        .loader-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .loader-line {
+
+            width: 180px;
+
+            height: 2px;
+
+            background: rgba(255,255,255,0.1);
+
+            overflow: hidden;
+
+            margin: auto;
+        }
+
+
+        .loader-line span {
+
+            display: block;
+
+            width: 40%;
+
+            height: 100%;
+
+            background: white;
+
+            animation: loader 1.2s infinite ease-in-out;
+        }
+
+
+        @keyframes loader {
+
+            0% {
+                transform: translateX(-120%);
+            }
+
+            100% {
+                transform: translateX(320%);
+            }
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(8,10,15,0.72);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid transparent;
+
+            transition: var(--transition);
+        }
+
+
+        .navbar.scrolled {
+
+            border-bottom-color: var(--border);
+
+            background: rgba(8,10,15,0.92);
+        }
+
+
+        .nav-container {
+
+            max-width: var(--max-width);
+
+            margin: auto;
+
+            padding: 18px 28px;
+
+            display: flex;
+
+            align-items: center;
+
             justify-content: space-between;
         }
 
+
         .logo {
+
+            font-family: "Playfair Display", serif;
+
             font-size: 21px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+
+            font-weight: 600;
+
+            letter-spacing: -0.3px;
         }
+
 
         .logo span {
-            color: var(--accent);
+            opacity: 0.5;
         }
 
+
         .nav-links {
+
             display: flex;
-            gap: 28px;
+
+            align-items: center;
+
+            gap: 27px;
+
             list-style: none;
         }
 
+
         .nav-links a {
-            color: #c9ced8;
-            font-size: 14px;
-            transition: 0.3s;
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            transition: var(--transition);
+
+            position: relative;
         }
 
-        .nav-links a:hover {
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
             color: white;
         }
 
 
-        /* =========================
-           HERO
-        ========================= */
+        .nav-links a::after {
 
-        .hero {
-            min-height: 100vh;
+            content: "";
 
-            display: flex;
-            align-items: center;
+            position: absolute;
 
-            padding-top: 90px;
-        }
+            left: 0;
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 80px;
-            align-items: center;
-        }
+            bottom: -7px;
 
-        .eyebrow {
-            color: var(--accent);
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+            width: 0;
 
-        .hero h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(45px, 7vw, 78px);
-            line-height: 1.05;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
-        }
+            height: 1px;
 
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 650px;
-            font-size: 17px;
-        }
-
-        .hero-buttons {
-            margin-top: 35px;
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 21px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: white;
-            transition: 0.3s;
-            font-size: 14px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-
-        .btn-primary {
             background: white;
-            color: #080a0e;
-            border-color: white;
-        }
 
-        .profile-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 380px;
-            object-fit: cover;
-
-            border-radius: 18px;
-
-            border: 1px solid var(--border);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.5);
+            transition: width 0.3s ease;
         }
 
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
 
-        section {
-            padding: 110px 0;
-        }
-
-        .section-number {
-            color: var(--accent);
-            font-size: 10px;
-            letter-spacing: 4px;
-            margin-bottom: 8px;
-        }
-
-        .section-title {
-            font-family: Georgia, serif;
-            font-size: 42px;
-            margin-bottom: 45px;
-        }
-
-        .section-description {
-            color: var(--muted);
-            max-width: 750px;
-            margin-bottom: 40px;
+            width: 100%;
         }
 
 
-        /* =========================
-           ABOUT
-        ========================= */
+        .mobile-menu {
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
+            display: none;
 
-        .about-box {
-            padding: 30px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-        }
+            border: 0;
 
-        .about-box h3 {
-            margin-bottom: 15px;
-            font-family: Georgia, serif;
-        }
+            background: transparent;
 
-        .about-box p {
-            color: var(--muted);
-        }
+            color: white;
 
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            padding: 9px 15px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            color: #cbd1dc;
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           RESEARCH
-        ========================= */
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .research-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 28px;
-
-            transition: 0.3s;
-        }
-
-        .research-card:hover {
-            transform: translateY(-5px);
-            border-color: #3d4654;
-        }
-
-        .research-card h3 {
-            font-family: Georgia, serif;
             font-size: 22px;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .research-card p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .paper-link {
-            color: var(--accent);
-            font-size: 13px;
-        }
-
-        .paper-link:hover {
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           CERTIFICATES
-        ========================= */
-
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .certificate-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            overflow: hidden;
-
-            transition: 0.35s;
 
             cursor: pointer;
         }
 
-        .certificate-card:hover {
-            transform: translateY(-7px);
-            border-color: #4b5665;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+
+        /* =========================================
+           GLOBAL CONTAINER
+        ========================================= */
+
+        .container {
+
+            width: min(
+                calc(100% - 56px),
+                var(--max-width)
+            );
+
+            margin: auto;
         }
 
-        /*
-           IMPORTANT:
-           All certificate images use EXACT filenames
-           from your GitHub folder.
-        */
 
-        .certificate-image-wrapper {
-            width: 100%;
-            height: 360px;
+        /* =========================================
+           HERO
+        ========================================= */
 
-            background: #080b10;
+        .hero {
+
+            min-height: 100vh;
 
             display: flex;
+
             align-items: center;
-            justify-content: center;
+
+            position: relative;
 
             overflow: hidden;
         }
 
-        .certificate-image {
-            width: 100%;
-            height: 100%;
 
-            object-fit: contain;
+        .hero::before {
 
-            transition: transform 0.4s;
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+
+            height: 650px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.025);
+
+            filter: blur(10px);
+
+            top: -280px;
+
+            right: -150px;
+
+            pointer-events: none;
         }
 
-        .certificate-card:hover .certificate-image {
-            transform: scale(1.025);
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            padding-top: 80px;
         }
 
-        .certificate-info {
-            padding: 24px;
+
+        .hero-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--text-muted);
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 11px;
+
+            margin-bottom: 25px;
         }
 
-        .certificate-year {
-            color: var(--accent);
-            font-size: 10px;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
+
+        .hero-label::before {
+
+            content: "";
+
+            width: 30px;
+
+            height: 1px;
+
+            background: #777;
         }
 
-        .certificate-info h3 {
-            font-family: Georgia, serif;
-            font-size: 21px;
-            margin-bottom: 8px;
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(48px, 7vw, 86px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            font-weight: 600;
+
+            max-width: 850px;
         }
 
-        .certificate-info p {
-            color: var(--muted);
-            font-size: 13px;
+
+        .hero h1 span {
+
+            color: #7e8793;
         }
 
-        .drive-card {
+
+        .hero-description {
+
+            max-width: 680px;
+
+            color: var(--text-secondary);
+
+            font-size: 17px;
+
             margin-top: 30px;
+
+            line-height: 1.9;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+        }
+
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 13px 21px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: var(--transition);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .btn-primary {
+
+            background: white;
+
+            color: #080a0f;
+        }
+
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 15px 35px rgba(255,255,255,0.08);
+        }
+
+
+        .btn-secondary {
+
+            color: white;
+
+            background: rgba(255,255,255,0.035);
+        }
+
+
+        .btn-secondary:hover {
+
+            background: rgba(255,255,255,0.09);
+
+            transform: translateY(-3px);
+        }
+
+
+        .hero-image-wrapper {
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+
+        .hero-image-frame {
+
+            width: min(410px, 100%);
+
+            aspect-ratio: 4 / 5;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            background: var(--card);
+
+            position: relative;
+        }
+
+
+        .hero-image-frame::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
 
             background:
                 linear-gradient(
-                    135deg,
-                    rgba(142,169,255,0.10),
-                    rgba(255,255,255,0.02)
+                    to top,
+                    rgba(0,0,0,0.28),
+                    transparent 35%
                 );
 
-            border: 1px solid var(--border);
-            border-radius: 15px;
-
-            padding: 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 25px;
-        }
-
-        .drive-card h3 {
-            font-family: Georgia, serif;
-            margin-bottom: 5px;
-        }
-
-        .drive-card p {
-            color: var(--muted);
-            font-size: 14px;
+            pointer-events: none;
         }
 
 
-        /* =========================
-           SOCIAL
-        ========================= */
+        .hero-image-frame img {
 
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
         }
 
-        .social-card {
-            padding: 22px;
+
+        .hero-image-caption {
+
+            position: absolute;
+
+            bottom: -25px;
+
+            left: -35px;
 
             background: var(--card);
+
             border: 1px solid var(--border);
 
             border-radius: 12px;
 
-            text-align: center;
+            padding: 15px 18px;
 
-            transition: 0.3s;
+            z-index: 3;
         }
 
-        .social-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
 
-        .social-card strong {
+        .hero-image-caption small {
+
             display: block;
-            margin-bottom: 5px;
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
         }
 
-        .social-card span {
-            color: var(--muted);
+
+        .hero-image-caption strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =========================================
+           SECTIONS
+        ========================================= */
+
+        section {
+
+            padding: 120px 0;
+
+            position: relative;
+        }
+
+
+        .section-header {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: flex-start;
+
+            margin-bottom: 55px;
+        }
+
+
+        .section-number {
+
+            color: #606875;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            padding-top: 9px;
+        }
+
+
+        .section-label {
+
+            color: #7c8592;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .section-header h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 80px;
+        }
+
+
+        .about-main p {
+
+            color: var(--text-secondary);
+
+            font-size: 17px;
+
+            line-height: 1.95;
+
+            margin-bottom: 22px;
+        }
+
+
+        .about-main p strong {
+
+            color: white;
+
+            font-weight: 600;
+        }
+
+
+        .about-facts {
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .fact {
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .fact span:first-child {
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.3px;
+        }
+
+
+        .fact span:last-child {
+
+            text-align: right;
+
+            font-size: 13px;
+
+            color: #dfe3e8;
+        }
+
+
+        /* =========================================
+           EDUCATION
+        ========================================= */
+
+        .education-list {
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .education-item {
+
+            display: grid;
+
+            grid-template-columns: 170px 1fr 150px;
+
+            gap: 30px;
+
+            padding: 32px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            transition: var(--transition);
+        }
+
+
+        .education-item:hover {
+
+            padding-left: 10px;
+
+            background: rgba(255,255,255,0.015);
+        }
+
+
+        .education-year {
+
+            color: var(--text-muted);
+
             font-size: 12px;
         }
 
 
-        /* =========================
-           CONTACT
-        ========================= */
+        .education-item h3 {
 
-        .contact-box {
-            background: var(--card);
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .education-item p {
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+        }
+
+
+        .education-status {
+
+            text-align: right;
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           RESEARCH
+        ========================================= */
+
+        .research-intro {
+
+            max-width: 800px;
+
+            color: var(--text-secondary);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            margin-bottom: 45px;
+        }
+
+
+        .research-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .research-card {
+
             border: 1px solid var(--border);
+
+            background: var(--card);
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 290px;
+
+            transition: var(--transition);
+        }
+
+
+        .research-card:hover {
+
+            transform: translateY(-7px);
+
+            background: var(--card-hover);
+
+            border-color: rgba(255,255,255,0.18);
+        }
+
+
+        .research-type {
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .research-card h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 23px;
+
+            line-height: 1.35;
+
+            margin-bottom: 15px;
+        }
+
+
+        .research-card p {
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            flex: 1;
+        }
+
+
+        .research-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 25px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: white;
+        }
+
+
+        .research-link i {
+
+            transition: transform 0.3s ease;
+        }
+
+
+        .research-link:hover i {
+
+            transform: translate(3px, -3px);
+        }
+
+
+        /* =========================================
+           SKILLS
+        ========================================= */
+
+        .skills-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .skill-card {
+
+            padding: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            background: var(--card);
+
+            transition: var(--transition);
+        }
+
+
+        .skill-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: rgba(255,255,255,0.18);
+        }
+
+
+        .skill-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            color: #dce1e7;
+        }
+
+
+        .skill-card h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .skill-card p {
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           CERTIFICATES
+        ========================================= */
+
+        .featured-certificates {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .certificate-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            overflow: hidden;
+
+            transition: var(--transition);
+        }
+
+
+        .certificate-card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: rgba(255,255,255,0.18);
+
+            box-shadow: 0 25px 55px rgba(0,0,0,0.2);
+        }
+
+
+        .certificate-image {
+
+            position: relative;
+
+            aspect-ratio: 16 / 11;
+
+            overflow: hidden;
+
+            background: #101318;
+        }
+
+
+        .certificate-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+
+        .certificate-card:hover .certificate-image img {
+
+            transform: scale(1.035);
+        }
+
+
+        .certificate-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: rgba(0,0,0,0.68);
+
+            opacity: 0;
+
+            transition: opacity 0.3s ease;
+        }
+
+
+        .certificate-card:hover .certificate-overlay {
+
+            opacity: 1;
+        }
+
+
+        .view-certificate {
+
+            border: 1px solid rgba(255,255,255,0.45);
+
+            background: rgba(255,255,255,0.1);
+
+            color: white;
+
+            padding: 12px 19px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(10px);
+
+            transition: var(--transition);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .view-certificate:hover {
+
+            background: white;
+
+            color: #111;
+        }
+
+
+        .certificate-info {
+
+            padding: 22px;
+        }
+
+
+        .certificate-year {
+
+            color: var(--text-muted);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .certificate-info h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            margin: 7px 0;
+        }
+
+
+        .certificate-info p {
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           GOOGLE DRIVE ARCHIVE
+        ========================================= */
+
+        .certificate-archive {
+
+            margin-top: 30px;
+
+            padding: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+        }
+
+
+        .archive-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            min-width: 60px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+
+        .archive-content {
+
+            flex: 1;
+        }
+
+
+        .archive-content .small-label {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: var(--text-muted);
+        }
+
+
+        .archive-content h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin: 4px 0;
+        }
+
+
+        .archive-content p {
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+
+            max-width: 700px;
+
+            line-height: 1.7;
+        }
+
+
+        .drive-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: white;
+
+            color: #0a0c10;
+
+            padding: 12px 18px;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: var(--transition);
+        }
+
+
+        .drive-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 30px rgba(255,255,255,0.08);
+        }
+
+
+        /* =========================================
+           CV
+        ========================================= */
+
+        .cv-section {
+
+            background: var(--bg-secondary);
+        }
+
+
+        .cv-container {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .cv-text p {
+
+            color: var(--text-secondary);
+
+            max-width: 650px;
+
+            line-height: 1.9;
+
+            margin-top: 20px;
+        }
+
+
+        .cv-actions {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+
+        .cv-preview {
+
+            border: 1px solid var(--border);
+
             border-radius: 18px;
 
-            padding: 50px;
+            padding: 45px;
+
+            background: var(--card);
 
             text-align: center;
         }
 
-        .contact-box h2 {
-            font-family: Georgia, serif;
-            font-size: 40px;
+
+        .cv-preview-icon {
+
+            font-size: 55px;
+
+            color: #d6dbe1;
+
+            margin-bottom: 20px;
+        }
+
+
+        .cv-preview h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .cv-preview p {
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+        }
+
+
+        .contact-text {
+
+            color: var(--text-secondary);
+
+            line-height: 1.9;
+
+            max-width: 620px;
+        }
+
+
+        .contact-links {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+
+        .contact-link {
+
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            padding: 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: var(--text-secondary);
+
+            transition: var(--transition);
+        }
+
+
+        .contact-link:hover {
+
+            color: white;
+
+            background: var(--accent-soft);
+
+            transform: translateY(-3px);
+        }
+
+
+        .contact-link i {
+
+            width: 24px;
+
+            text-align: center;
+        }
+
+
+        .contact-card {
+
+            border: 1px solid var(--border);
+
+            background: var(--card);
+
+            border-radius: 18px;
+
+            padding: 35px;
+        }
+
+
+        .contact-card h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
             margin-bottom: 15px;
         }
 
-        .contact-box p {
-            color: var(--muted);
+
+        .contact-card p {
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
             margin-bottom: 25px;
         }
 
 
-        /* =========================
+        /* =========================================
            FOOTER
-        ========================= */
+        ========================================= */
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 30px 0;
 
-            color: var(--muted);
-            font-size: 12px;
-            text-align: center;
+            border-top: 1px solid var(--border);
+
+            padding: 30px 0;
         }
 
 
-        /* =========================
-           IMAGE MODAL
-        ========================= */
+        .footer-content {
 
-        .modal {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .footer-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 18px;
+        }
+
+
+        .footer-copy {
+
+            color: var(--text-muted);
+
+            font-size: 11px;
+        }
+
+
+        .footer-socials {
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+
+        .footer-socials a {
+
+            color: var(--text-muted);
+
+            transition: var(--transition);
+        }
+
+
+        .footer-socials a:hover {
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           BACK TO TOP
+        ========================================= */
+
+        #backToTop {
+
             position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(15,18,24,0.85);
+
+            color: white;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition: var(--transition);
+
+            z-index: 900;
+        }
+
+
+        #backToTop.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        #backToTop:hover {
+
+            background: white;
+
+            color: #111;
+        }
+
+
+        /* =========================================
+           CERTIFICATE MODAL
+        ========================================= */
+
+        .certificate-modal {
+
+            position: fixed;
+
             inset: 0;
 
+            z-index: 9999;
+
             background: rgba(0,0,0,0.92);
+
+            backdrop-filter: blur(15px);
 
             display: none;
 
             align-items: center;
-            justify-content: center;
 
-            z-index: 2000;
+            justify-content: center;
 
             padding: 30px;
         }
 
-        .modal.active {
+
+        .certificate-modal.active {
+
             display: flex;
         }
 
-        .modal img {
-            max-width: 95%;
-            max-height: 90vh;
+
+        .modal-content {
+
+            position: relative;
+
+            max-width: 1100px;
+
+            width: 100%;
+
+            text-align: center;
+        }
+
+
+        .modal-content img {
+
+            max-width: 100%;
+
+            max-height: 78vh;
 
             object-fit: contain;
 
-            border-radius: 5px;
+            border-radius: 8px;
+
+            box-shadow: 0 30px 100px rgba(0,0,0,0.6);
         }
 
+
         .modal-close {
+
             position: absolute;
-            top: 25px;
-            right: 35px;
 
-            color: white;
+            right: 0;
 
-            font-size: 40px;
+            top: -50px;
+
+            width: 38px;
+
+            height: 38px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #111;
 
             cursor: pointer;
 
-            line-height: 1;
+            font-size: 22px;
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        .modal-title {
 
-        @media (max-width: 850px) {
+            color: white;
+
+            font-family: "Playfair Display", serif;
+
+            margin-top: 14px;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================= */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 950px) {
 
             .nav-links {
-                display: none;
+
+                position: fixed;
+
+                top: 70px;
+
+                left: 20px;
+
+                right: 20px;
+
+                background: rgba(13,16,23,0.97);
+
+                border: 1px solid var(--border);
+
+                border-radius: 15px;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 17px;
+
+                transform: translateY(-20px);
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                transition: var(--transition);
             }
 
-            .hero-grid {
+
+            .nav-links.open {
+
+                transform: translateY(0);
+
+                opacity: 1;
+
+                visibility: visible;
+            }
+
+
+            .mobile-menu {
+
+                display: block;
+            }
+
+
+            .hero-grid,
+            .about-grid,
+            .cv-container,
+            .contact-grid {
+
                 grid-template-columns: 1fr;
-                text-align: center;
             }
 
-            .hero p {
-                margin: auto;
-            }
 
-            .hero-buttons {
-                justify-content: center;
-            }
+            .hero-image-wrapper {
 
-            .profile-container {
                 order: -1;
             }
 
-            .profile-image {
-                width: 240px;
-                height: 310px;
+
+            .hero {
+
+                padding-top: 80px;
             }
 
-            .about-grid,
-            .research-grid,
-            .certificate-grid {
-                grid-template-columns: 1fr;
+
+            .hero-grid {
+
+                gap: 50px;
             }
 
-            .social-grid {
+
+            .hero-image-frame {
+
+                width: min(350px, 100%);
+            }
+
+
+            .education-item {
+
+                grid-template-columns: 120px 1fr;
+            }
+
+
+            .education-status {
+
+                display: none;
+            }
+
+
+            .skills-grid {
+
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .drive-card {
-                flex-direction: column;
-                align-items: flex-start;
+
+            .research-grid {
+
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 500px) {
+
+        @media (max-width: 650px) {
+
+            .container {
+
+                width: min(
+                    calc(100% - 36px),
+                    var(--max-width)
+                );
+            }
+
+
+            section {
+
+                padding: 85px 0;
+            }
+
+
+            .nav-container {
+
+                padding: 15px 18px;
+            }
+
 
             .hero h1 {
-                font-size: 45px;
+
+                font-size: 47px;
+
+                letter-spacing: -2px;
             }
 
-            .section-title {
-                font-size: 34px;
+
+            .hero-description {
+
+                font-size: 15px;
             }
 
-            .certificate-image-wrapper {
-                height: 260px;
+
+            .hero-image-caption {
+
+                left: 10px;
+
+                bottom: -20px;
             }
 
-            .contact-box {
-                padding: 30px 20px;
-            }
 
-            .social-grid {
+            .featured-certificates {
+
                 grid-template-columns: 1fr;
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .contact-links {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .certificate-archive {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .drive-button {
+
+                width: 100%;
+
+                justify-content: center;
+            }
+
+
+            .footer-content {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .education-item {
+
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+
+            .education-status {
+
+                display: none;
+            }
+
+
+            .modal-close {
+
+                top: -48px;
+
+                right: 0;
             }
         }
 
@@ -649,11 +2066,32 @@
 <body>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+    <!-- =========================================
+         PAGE LOADER
+    ========================================== -->
 
-    <nav>
+    <div id="page-loader">
+
+        <div class="loader-content">
+
+            <div class="loader-name">
+                Abdullah Al- Salman
+            </div>
+
+            <div class="loader-line">
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="navbar" id="navbar">
 
         <div class="nav-container">
 
@@ -661,89 +2099,158 @@
                 Abdullah <span>Al- Salman</span>
             </a>
 
-            <ul class="nav-links">
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-label="Open navigation menu"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <ul class="nav-links" id="navLinks">
 
                 <li>
-                    <a href="#about">About</a>
+                    <a href="#home" class="active">
+                        Home
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#research">Research</a>
+                    <a href="#about">
+                        About
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#certificates">Certificates</a>
+                    <a href="#education">
+                        Education
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#connect">Connect</a>
+                    <a href="#research">
+                        Research
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#certificates">
+                        Certificates
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#cv">
+                        CV
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
                 </li>
 
             </ul>
 
         </div>
 
-    </nav>
+    </header>
 
 
+    <main>
 
-    <!-- =========================
-         HERO
-    ========================= -->
 
-    <main id="home">
+        <!-- =========================================
+             HERO
+        ========================================== -->
 
-        <section class="hero">
+        <section id="home" class="hero">
 
-            <div class="container hero-grid">
+            <div class="container">
 
-                <div>
+                <div class="hero-grid">
 
-                    <div class="eyebrow">
-                        Researcher · Data Analyst · Aspiring Professional
+                    <div class="hero-content reveal">
+
+                        <div class="hero-label">
+                            Researcher · Accounting · Data
+                        </div>
+
+
+                        <h1>
+                            Abdullah
+                            <span>Al- Salman</span>
+                        </h1>
+
+
+                        <p class="hero-description">
+
+                            Accounting and Information Systems student,
+                            researcher and aspiring professional with an
+                            interest in accounting, corporate governance,
+                            data analysis, business research and technology.
+
+                        </p>
+
+
+                        <div class="hero-buttons">
+
+                            <a
+                                href="#research"
+                                class="btn btn-primary"
+                            >
+                                Explore My Research
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+
+
+                            <a
+                                href="#contact"
+                                class="btn btn-secondary"
+                            >
+                                Get In Touch
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
                     </div>
 
-                    <h1>
-                        Abdullah <span>Al- Salman</span>
-                    </h1>
 
-                    <p>
-                        Accounting and Information Systems student at the
-                        University of Rajshahi with interests in research,
-                        data analysis, accounting, finance, corporate
-                        governance and technology.
-                    </p>
+                    <div class="hero-image-wrapper reveal">
 
-                    <div class="hero-buttons">
+                        <div class="hero-image-frame">
 
-                        <a href="#research" class="btn btn-primary">
-                            Explore My Research
-                        </a>
+                            <img
+                                src="images/profile-formal.png"
+                                alt="Abdullah Al- Salman"
+                            >
 
-                        <a href="#certificates" class="btn">
-                            View Certificates
-                        </a>
+                        </div>
 
-                        <a href="https://github.com/AlSalman471"
-                           target="_blank"
-                           class="btn">
-                            GitHub
-                        </a>
+
+                        <div class="hero-image-caption">
+
+                            <small>
+                                Researcher & Aspiring Professional
+                            </small>
+
+                            <strong>
+                                Accounting & Information Systems
+                            </strong>
+
+                        </div>
 
                     </div>
-
-                </div>
-
-
-                <div class="profile-container">
-
-                    <!-- EXACT PROFILE FILE NAME -->
-
-                    <img
-                        src="profile-formal.png"
-                        alt="Abdullah Al- Salman"
-                        class="profile-image"
-                    >
 
                 </div>
 
@@ -752,90 +2259,120 @@
         </section>
 
 
-
-        <!-- =========================
+        <!-- =========================================
              ABOUT
-        ========================= -->
+        ========================================== -->
 
         <section id="about">
 
             <div class="container">
 
-                <div class="section-number">
-                    01 — PROFILE
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            PROFILE
+                        </p>
+
+                        <h2>
+                            About Me
+                        </h2>
+
+                    </div>
+
                 </div>
 
-                <h2 class="section-title">
-                    About Me
-                </h2>
 
                 <div class="about-grid">
 
-                    <div class="about-box">
-
-                        <h3>
-                            Academic & Professional Interests
-                        </h3>
+                    <div class="about-main reveal">
 
                         <p>
-                            I am an Accounting and Information Systems student
-                            interested in accounting, finance, corporate
-                            governance, sustainability, research methodology
-                            and data-driven decision making.
+                            I am <strong>Abdullah Al- Salman</strong>,
+                            an Accounting and Information Systems student
+                            with a growing interest in research, data
+                            analysis, accounting, corporate governance and
+                            technology.
+                        </p>
+
+
+                        <p>
+                            My academic and research interests bring
+                            together accounting knowledge, business
+                            research and analytical approaches to
+                            understand contemporary organizational and
+                            financial issues.
+                        </p>
+
+
+                        <p>
+                            I am continuously developing my research,
+                            analytical, communication and professional
+                            skills while exploring opportunities to
+                            contribute to meaningful academic and
+                            professional work.
                         </p>
 
                     </div>
 
 
-                    <div class="about-box">
+                    <div class="about-facts reveal">
 
-                        <h3>
-                            Research & Data
-                        </h3>
+                        <div class="fact">
 
-                        <p>
-                            My research interests include corporate
-                            performance, CSR, knowledge assets, accounting
-                            education, financial performance and empirical
-                            data analysis.
-                        </p>
+                            <span>
+                                Field
+                            </span>
 
-                    </div>
+                            <span>
+                                Accounting & Information Systems
+                            </span>
 
-                </div>
+                        </div>
 
 
-                <div style="margin-top:40px;">
+                        <div class="fact">
 
-                    <h3 style="margin-bottom:18px;">
-                        Areas & Skills
-                    </h3>
+                            <span>
+                                Focus
+                            </span>
 
-                    <div class="skills">
+                            <span>
+                                Research & Data Analysis
+                            </span>
 
-                        <span class="skill">Accounting</span>
+                        </div>
 
-                        <span class="skill">Finance</span>
 
-                        <span class="skill">Research</span>
+                        <div class="fact">
 
-                        <span class="skill">Data Analysis</span>
+                            <span>
+                                Interests
+                            </span>
 
-                        <span class="skill">IBM SPSS</span>
+                            <span>
+                                Accounting · Governance · Technology
+                            </span>
 
-                        <span class="skill">Python</span>
+                        </div>
 
-                        <span class="skill">Machine Learning</span>
 
-                        <span class="skill">Stata</span>
+                        <div class="fact">
 
-                        <span class="skill">Corporate Governance</span>
+                            <span>
+                                Location
+                            </span>
 
-                        <span class="skill">CSR</span>
+                            <span>
+                                Bangladesh
+                            </span>
 
-                        <span class="skill">Sustainability</span>
-
-                        <span class="skill">Microsoft Office</span>
+                        </div>
 
                     </div>
 
@@ -846,35 +2383,167 @@
         </section>
 
 
+        <!-- =========================================
+             EDUCATION
+        ========================================== -->
 
-        <!-- =========================
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            ACADEMIC JOURNEY
+                        </p>
+
+                        <h2>
+                            Education
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="education-list">
+
+                    <div class="education-item reveal">
+
+                        <div class="education-year">
+                            Session 2021–2022
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Bachelor of Business Studies
+                            </h3>
+
+                            <p>
+                                Accounting & Information Systems
+                            </p>
+
+                        </div>
+
+                        <div class="education-status">
+                            Undergraduate
+                        </div>
+
+                    </div>
+
+
+                    <div class="education-item reveal">
+
+                        <div class="education-year">
+                            2021
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Higher Secondary Certificate
+                            </h3>
+
+                            <p>
+                                HSC
+                            </p>
+
+                        </div>
+
+                        <div class="education-status">
+                            Completed
+                        </div>
+
+                    </div>
+
+
+                    <div class="education-item reveal">
+
+                        <div class="education-year">
+                            2019
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Secondary School Certificate
+                            </h3>
+
+                            <p>
+                                SSC
+                            </p>
+
+                        </div>
+
+                        <div class="education-status">
+                            Completed
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
              RESEARCH
-        ========================= -->
+        ========================================== -->
 
         <section id="research">
 
             <div class="container">
 
-                <div class="section-number">
-                    02 — RESEARCH
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            ACADEMIC WORK
+                        </p>
+
+                        <h2>
+                            Research
+                        </h2>
+
+                    </div>
+
                 </div>
 
-                <h2 class="section-title">
-                    Research & Publications
-                </h2>
 
-                <p class="section-description">
-                    Selected research papers and conference contributions.
-                    Click any paper to open its ResearchGate page.
+                <p class="research-intro reveal">
+
+                    My research interests cover accounting, financial
+                    performance, knowledge assets, corporate social
+                    responsibility, banking, pharmaceuticals and
+                    accounting education.
+
                 </p>
 
 
                 <div class="research-grid">
 
 
-                    <!-- PAPER 01 -->
+                    <!-- PAPER 1 -->
 
-                    <article class="research-card">
+                    <article class="research-card reveal">
+
+                        <span class="research-type">
+                            Research Paper
+                        </span>
 
                         <h3>
                             The Role of Knowledge Assets in Boosting Bank
@@ -882,53 +2551,63 @@
                         </h3>
 
                         <p>
-                            An empirical study examining the relationship
-                            between knowledge assets and bank performance
-                            in Bangladesh.
+                            A study examining the relationship between
+                            knowledge assets and bank performance in the
+                            context of Bangladesh.
                         </p>
 
                         <a
                             href="https://www.researchgate.net/publication/398113377_The_Role_of_Knowledge_Assets_in_Boosting_Bank_Performance_Evidence_from_Bangladesh"
                             target="_blank"
-                            class="paper-link"
+                            rel="noopener noreferrer"
+                            class="research-link"
                         >
-                            View on ResearchGate →
+                            View on ResearchGate
+                            <i class="fas fa-arrow-up-right-from-square"></i>
                         </a>
 
                     </article>
 
 
+                    <!-- PAPER 2 -->
 
-                    <!-- PAPER 02 -->
+                    <article class="research-card reveal">
 
-                    <article class="research-card">
+                        <span class="research-type">
+                            Research Paper
+                        </span>
 
                         <h3>
-                            Impact of CSR Practices on Customer Loyalty
-                            in Bangladesh: A Study on the Banking Sector
+                            Impact of CSR Practices on Customer Loyalty in
+                            Bangladesh: A Study on the Banking Sector
                         </h3>
 
                         <p>
-                            Research examining how corporate social
-                            responsibility practices influence customer
-                            loyalty in the banking sector.
+                            Research examining the impact of corporate
+                            social responsibility practices on customer
+                            loyalty within the banking sector of Bangladesh.
                         </p>
 
                         <a
                             href="https://www.researchgate.net/publication/405494508_Impact_of_CSR_Practices_on_Customer_Loyalty_in_Bangladesh_A_Study_on_the_Banking_Sector"
                             target="_blank"
-                            class="paper-link"
+                            rel="noopener noreferrer"
+                            class="research-link"
                         >
-                            View on ResearchGate →
+                            View on ResearchGate
+                            <i class="fas fa-arrow-up-right-from-square"></i>
                         </a>
 
                     </article>
 
 
+                    <!-- PAPER 3 -->
 
-                    <!-- PAPER 03 -->
+                    <article class="research-card reveal">
 
-                    <article class="research-card">
+                        <span class="research-type">
+                            Research Paper
+                        </span>
 
                         <h3>
                             Expenses on Intangible Assets and Financial
@@ -937,26 +2616,31 @@
                         </h3>
 
                         <p>
-                            An empirical investigation of intangible asset
-                            expenditure and financial performance among
-                            listed pharmaceutical companies in Bangladesh.
+                            An empirical investigation into intangible
+                            asset expenses and the financial performance
+                            of listed pharmaceutical companies in Bangladesh.
                         </p>
 
                         <a
                             href="https://www.researchgate.net/publication/387906743_Expenses_on_Intangible_Assets_and_Financial_Performance_of_Listed_Pharmaceuticals_Companies_in_Bangladesh_An_Empirical_Investigation"
                             target="_blank"
-                            class="paper-link"
+                            rel="noopener noreferrer"
+                            class="research-link"
                         >
-                            View on ResearchGate →
+                            View on ResearchGate
+                            <i class="fas fa-arrow-up-right-from-square"></i>
                         </a>
 
                     </article>
 
 
+                    <!-- CONFERENCE PAPER -->
 
-                    <!-- PAPER 04 -->
+                    <article class="research-card reveal">
 
-                    <article class="research-card">
+                        <span class="research-type">
+                            Conference Paper
+                        </span>
 
                         <h3>
                             Factors Affecting Accounting Software Learning
@@ -964,20 +2648,42 @@
                         </h3>
 
                         <p>
-                            A conference research paper investigating factors
-                            associated with accounting software learning
-                            environments in public universities.
+                            A conference paper investigating factors that
+                            affect the accounting software learning
+                            environment in public universities in Bangladesh.
                         </p>
 
                         <a
                             href="https://www.researchgate.net/publication/405494604_Factors_Affecting_Accounting_Software_Learning_Environment_in_Public_Universities_in_Bangladesh"
                             target="_blank"
-                            class="paper-link"
+                            rel="noopener noreferrer"
+                            class="research-link"
                         >
-                            View on ResearchGate →
+                            View on ResearchGate
+                            <i class="fas fa-arrow-up-right-from-square"></i>
                         </a>
 
                     </article>
+
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:30px;
+                    "
+                    class="reveal"
+                >
+
+                    <a
+                        href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                    >
+                        <i class="fab fa-researchgate"></i>
+                        Visit My ResearchGate Profile
+                    </a>
 
                 </div>
 
@@ -986,58 +2692,223 @@
         </section>
 
 
+        <!-- =========================================
+             SKILLS
+        ========================================== -->
 
-        <!-- =========================
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            CAPABILITIES
+                        </p>
+
+                        <h2>
+                            Skills & Interests
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+
+                        <h3>
+                            Accounting
+                        </h3>
+
+                        <p>
+                            Accounting concepts, financial reporting,
+                            corporate reporting and related business
+                            analysis.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+
+                        <h3>
+                            Data Analysis
+                        </h3>
+
+                        <p>
+                            Data-driven analysis, statistical thinking
+                            and quantitative research approaches.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <h3>
+                            Research
+                        </h3>
+
+                        <p>
+                            Academic research, literature review,
+                            empirical analysis and research writing.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-building-columns"></i>
+                        </div>
+
+                        <h3>
+                            Corporate Governance
+                        </h3>
+
+                        <p>
+                            Interest in governance, board characteristics,
+                            sustainability and corporate performance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+
+                        <h3>
+                            Technology
+                        </h3>
+
+                        <p>
+                            Interest in information systems, data science,
+                            programming and technology-enabled analysis.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+
+                        <h3>
+                            Leadership & Communication
+                        </h3>
+
+                        <p>
+                            Developing leadership, presentation,
+                            communication and collaborative skills.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
              CERTIFICATES
-        ========================= -->
+        ========================================== -->
 
         <section id="certificates">
 
             <div class="container">
 
-                <div class="section-number">
-                    03 — ACHIEVEMENTS
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            ACHIEVEMENTS
+                        </p>
+
+                        <h2>
+                            Certificates
+                        </h2>
+
+                    </div>
+
                 </div>
 
-                <h2 class="section-title">
-                    Certificates
-                </h2>
 
-                <p class="section-description">
-                    Selected certificates and achievements. Click any
-                    certificate to view it in full size.
-                </p>
+                <div class="featured-certificates">
 
 
-                <div class="certificate-grid">
+                    <!-- CERTIFICATE 1 -->
 
+                    <article class="certificate-card reveal">
 
-                    <!-- =====================
-                         CERTIFICATE 01
-                         EXACT FILE:
-                         certificate-aspire-leaders-2025.png
-                    ====================== -->
-
-                    <div
-                        class="certificate-card"
-                        onclick="openCertificate('certificate-aspire-leaders-2025.png')"
-                    >
-
-                        <div class="certificate-image-wrapper">
+                        <div class="certificate-image">
 
                             <img
-                                src="certificate-aspire-leaders-2025.png"
+                                src="images/certificate-aspire-leaders-2025.png"
                                 alt="Aspire Leaders 2025 Certificate"
-                                class="certificate-image"
+                                loading="lazy"
                             >
+
+
+                            <div class="certificate-overlay">
+
+                                <button
+                                    class="view-certificate"
+                                    onclick="
+                                        openCertificate(
+                                            'images/certificate-aspire-leaders-2025.png',
+                                            'Aspire Leaders 2025'
+                                        )
+                                    "
+                                >
+                                    <i class="fas fa-expand"></i>
+                                    View Certificate
+                                </button>
+
+                            </div>
 
                         </div>
 
+
                         <div class="certificate-info">
 
-                            <div class="certificate-year">
+                            <span class="certificate-year">
                                 2025
-                            </div>
+                            </span>
 
                             <h3>
                                 Aspire Leaders 2025
@@ -1049,36 +2920,47 @@
 
                         </div>
 
-                    </div>
+                    </article>
 
 
+                    <!-- CERTIFICATE 2 -->
 
-                    <!-- =====================
-                         CERTIFICATE 02
-                         EXACT FILE:
-                         achievement-case-competition-runner-up-2024.jpeg
-                    ====================== -->
+                    <article class="certificate-card reveal">
 
-                    <div
-                        class="certificate-card"
-                        onclick="openCertificate('achievement-case-competition-runner-up-2024.jpeg')"
-                    >
-
-                        <div class="certificate-image-wrapper">
+                        <div class="certificate-image">
 
                             <img
-                                src="achievement-case-competition-runner-up-2024.jpeg"
-                                alt="Case Competition Runner-Up 2024 Certificate"
-                                class="certificate-image"
+                                src="images/achievement-case-competition-runner-up-2024.jpeg"
+                                alt="Case Competition Runner-Up 2024"
+                                loading="lazy"
                             >
+
+
+                            <div class="certificate-overlay">
+
+                                <button
+                                    class="view-certificate"
+                                    onclick="
+                                        openCertificate(
+                                            'images/achievement-case-competition-runner-up-2024.jpeg',
+                                            'Case Competition Runner-Up 2024'
+                                        )
+                                    "
+                                >
+                                    <i class="fas fa-expand"></i>
+                                    View Certificate
+                                </button>
+
+                            </div>
 
                         </div>
 
+
                         <div class="certificate-info">
 
-                            <div class="certificate-year">
+                            <span class="certificate-year">
                                 2024
-                            </div>
+                            </span>
 
                             <h3>
                                 Case Competition Runner-Up
@@ -1090,36 +2972,47 @@
 
                         </div>
 
-                    </div>
+                    </article>
 
 
+                    <!-- CERTIFICATE 3 -->
 
-                    <!-- =====================
-                         CERTIFICATE 03
-                         EXACT FILE:
-                         certificate-english-olympiad-leadership-2025.jpeg
-                    ====================== -->
+                    <article class="certificate-card reveal">
 
-                    <div
-                        class="certificate-card"
-                        onclick="openCertificate('certificate-english-olympiad-leadership-2025.jpeg')"
-                    >
-
-                        <div class="certificate-image-wrapper">
+                        <div class="certificate-image">
 
                             <img
-                                src="certificate-english-olympiad-leadership-2025.jpeg"
+                                src="images/certificate-english-olympiad-leadership-2025.jpeg"
                                 alt="English Olympiad Leadership 2025 Certificate"
-                                class="certificate-image"
+                                loading="lazy"
                             >
+
+
+                            <div class="certificate-overlay">
+
+                                <button
+                                    class="view-certificate"
+                                    onclick="
+                                        openCertificate(
+                                            'images/certificate-english-olympiad-leadership-2025.jpeg',
+                                            'English Olympiad Leadership 2025'
+                                        )
+                                    "
+                                >
+                                    <i class="fas fa-expand"></i>
+                                    View Certificate
+                                </button>
+
+                            </div>
 
                         </div>
 
+
                         <div class="certificate-info">
 
-                            <div class="certificate-year">
+                            <span class="certificate-year">
                                 2025
-                            </div>
+                            </span>
 
                             <h3>
                                 English Olympiad Leadership
@@ -1131,36 +3024,47 @@
 
                         </div>
 
-                    </div>
+                    </article>
 
 
+                    <!-- CERTIFICATE 4 -->
 
-                    <!-- =====================
-                         CERTIFICATE 04
-                         EXACT FILE:
-                         certificate-aptis-english-2023.jpg
-                    ====================== -->
+                    <article class="certificate-card reveal">
 
-                    <div
-                        class="certificate-card"
-                        onclick="openCertificate('certificate-aptis-english-2023.jpg')"
-                    >
-
-                        <div class="certificate-image-wrapper">
+                        <div class="certificate-image">
 
                             <img
-                                src="certificate-aptis-english-2023.jpg"
+                                src="images/certificate-aptis-english-2023.jpg"
                                 alt="APTIS English 2023 Certificate"
-                                class="certificate-image"
+                                loading="lazy"
                             >
+
+
+                            <div class="certificate-overlay">
+
+                                <button
+                                    class="view-certificate"
+                                    onclick="
+                                        openCertificate(
+                                            'images/certificate-aptis-english-2023.jpg',
+                                            'APTIS English 2023'
+                                        )
+                                    "
+                                >
+                                    <i class="fas fa-expand"></i>
+                                    View Certificate
+                                </button>
+
+                            </div>
 
                         </div>
 
+
                         <div class="certificate-info">
 
-                            <div class="certificate-year">
+                            <span class="certificate-year">
                                 2023
-                            </div>
+                            </span>
 
                             <h3>
                                 APTIS English
@@ -1172,37 +3076,54 @@
 
                         </div>
 
-                    </div>
-
+                    </article>
 
                 </div>
 
 
-                <!-- =========================
-                     GOOGLE DRIVE
-                ========================= -->
+                <!-- GOOGLE DRIVE ARCHIVE -->
 
-                <div class="drive-card">
+                <div class="certificate-archive reveal">
 
-                    <div>
+                    <div class="archive-icon">
+
+                        <i class="fas fa-folder-open"></i>
+
+                    </div>
+
+
+                    <div class="archive-content">
+
+                        <span class="small-label">
+                            CERTIFICATE ARCHIVE
+                        </span>
 
                         <h3>
                             More Certificates
                         </h3>
 
                         <p>
-                            View the complete collection of my certificates
-                            and achievements on Google Drive.
+                            Explore the complete collection of my
+                            certificates, achievements, training programs,
+                            workshops and other professional credentials.
                         </p>
 
                     </div>
 
+
                     <a
                         href="https://drive.google.com/drive/folders/1hN9_bZM-fWgaURA8w9t7F624gqouabFr?usp=drive_link"
                         target="_blank"
-                        class="btn btn-primary"
+                        rel="noopener noreferrer"
+                        class="drive-button"
                     >
-                        View All Certificates →
+
+                        <i class="fab fa-google-drive"></i>
+
+                        View All Certificates
+
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+
                     </a>
 
                 </div>
@@ -1212,124 +3133,263 @@
         </section>
 
 
+        <!-- =========================================
+             CV
+        ========================================== -->
 
-        <!-- =========================
-             CONNECT
-        ========================= -->
-
-        <section id="connect">
+        <section id="cv" class="cv-section">
 
             <div class="container">
 
-                <div class="section-number">
-                    04 — CONNECT
-                </div>
+                <div class="cv-container">
 
-                <h2 class="section-title">
-                    Find Me Online
-                </h2>
+                    <div class="cv-text reveal">
 
+                        <div class="section-header">
 
-                <div class="social-grid">
+                            <span class="section-number">
+                                06
+                            </span>
 
+                            <div>
 
-                    <a
-                        href="https://github.com/AlSalman471"
-                        target="_blank"
-                        class="social-card"
-                    >
+                                <p class="section-label">
+                                    PROFESSIONAL PROFILE
+                                </p>
 
-                        <strong>GitHub</strong>
+                                <h2>
+                                    Curriculum Vitae
+                                </h2>
 
-                        <span>
-                            Projects & Code
-                        </span>
+                            </div>
 
-                    </a>
+                        </div>
 
-
-                    <a
-                        href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
-                        target="_blank"
-                        class="social-card"
-                    >
-
-                        <strong>ResearchGate</strong>
-
-                        <span>
-                            Research & Publications
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.facebook.com/abdullah.alsalman.5439"
-                        target="_blank"
-                        class="social-card"
-                    >
-
-                        <strong>Facebook</strong>
-
-                        <span>
-                            Social Profile
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.instagram.com/_salman82?igsi=MTVmM2NqODQ2YWF0cg=="
-                        target="_blank"
-                        class="social-card"
-                    >
-
-                        <strong>Instagram</strong>
-
-                        <span>
-                            Personal Profile
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="https://wa.me/+8801849862186"
-                        target="_blank"
-                        class="social-card"
-                    >
-
-                        <strong>WhatsApp</strong>
-
-                        <span>
-                            Direct Contact
-                        </span>
-
-                    </a>
-
-
-                </div>
-
-
-                <div style="margin-top:40px;">
-
-                    <div class="contact-box">
-
-                        <h2>
-                            Let's Connect
-                        </h2>
 
                         <p>
-                            Interested in research, collaboration,
-                            data analysis or professional opportunities?
+                            Interested in learning more about my academic
+                            background, research experience, skills and
+                            professional development?
                         </p>
 
+
+                        <div class="cv-actions">
+
+                            <a
+                                href="cv-abdullah-al-salman.pdf"
+                                target="_blank"
+                                class="btn btn-primary"
+                            >
+                                <i class="fas fa-file-pdf"></i>
+                                View CV
+                            </a>
+
+
+                            <a
+                                href="cv-abdullah-al-salman.pdf"
+                                download
+                                class="btn btn-secondary"
+                            >
+                                <i class="fas fa-download"></i>
+                                Download CV
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cv-preview reveal">
+
+                        <div class="cv-preview-icon">
+
+                            <i class="far fa-file-pdf"></i>
+
+                        </div>
+
+                        <h3>
+                            Abdullah Al- Salman
+                        </h3>
+
+                        <p>
+                            Curriculum Vitae
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+        ========================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <span class="section-number">
+                        07
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            CONNECT
+                        </p>
+
+                        <h2>
+                            Get In Touch
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="reveal">
+
+                        <p class="contact-text">
+
+                            Whether you are interested in research,
+                            collaboration, academic opportunities or
+                            simply connecting professionally, feel free
+                            to reach out through any of the platforms below.
+
+                        </p>
+
+
+                        <div class="contact-links">
+
+
+                            <!-- FACEBOOK -->
+
+                            <a
+                                href="https://www.facebook.com/abdullah.alsalman.5439"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-link"
+                            >
+
+                                <i class="fab fa-facebook-f"></i>
+
+                                <span>
+                                    Facebook
+                                </span>
+
+                            </a>
+
+
+                            <!-- INSTAGRAM -->
+
+                            <a
+                                href="https://www.instagram.com/_salman82?igsi=MTVmM2NqODQ2YWF0cg=="
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-link"
+                            >
+
+                                <i class="fab fa-instagram"></i>
+
+                                <span>
+                                    Instagram
+                                </span>
+
+                            </a>
+
+
+                            <!-- WHATSAPP -->
+
+                            <a
+                                href="https://wa.me/+8801849862186"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-link"
+                            >
+
+                                <i class="fab fa-whatsapp"></i>
+
+                                <span>
+                                    WhatsApp
+                                </span>
+
+                            </a>
+
+
+                            <!-- GITHUB -->
+
+                            <a
+                                href="https://github.com/AlSalman471"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-link"
+                            >
+
+                                <i class="fab fa-github"></i>
+
+                                <span>
+                                    GitHub
+                                </span>
+
+                            </a>
+
+
+                            <!-- RESEARCHGATE -->
+
+                            <a
+                                href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="contact-link"
+                            >
+
+                                <i class="fab fa-researchgate"></i>
+
+                                <span>
+                                    ResearchGate
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card reveal">
+
+                        <h3>
+                            Let's Connect.
+                        </h3>
+
+                        <p>
+                            My professional profiles and research work
+                            are available through the links below.
+                            You can explore my work, publications,
+                            projects and professional development.
+                        </p>
+
+
                         <a
-                            href="https://wa.me/+8801849862186"
+                            href="https://github.com/AlSalman471"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="btn btn-primary"
                         >
-                            Contact Me on WhatsApp
+
+                            <i class="fab fa-github"></i>
+
+                            Visit My GitHub
+
                         </a>
 
                     </div>
@@ -1340,123 +3400,497 @@
 
         </section>
 
+
     </main>
 
 
-
-    <!-- =========================
+    <!-- =========================================
          FOOTER
-    ========================= -->
+    ========================================== -->
 
     <footer>
 
         <div class="container">
 
-            © <span id="year"></span>
-            Abdullah Al- Salman.
-            All rights reserved.
+            <div class="footer-content">
+
+                <div class="footer-name">
+                    Abdullah Al- Salman
+                </div>
+
+
+                <div class="footer-copy">
+                    © <span id="currentYear"></span>
+                    Abdullah Al- Salman. All rights reserved.
+                </div>
+
+
+                <div class="footer-socials">
+
+                    <a
+                        href="https://github.com/AlSalman471"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+
+
+                    <a
+                        href="https://www.researchgate.net/profile/Abdullah-Al-Salman-3?ev=hdr_xprf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="ResearchGate"
+                    >
+                        <i class="fab fa-researchgate"></i>
+                    </a>
+
+
+                    <a
+                        href="https://www.facebook.com/abdullah.alsalman.5439"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/_salman82?igsi=MTVmM2NqODQ2YWF0cg=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
     </footer>
 
 
+    <!-- =========================================
+         BACK TO TOP
+    ========================================== -->
 
-    <!-- =========================
-         CERTIFICATE MODAL
-    ========================= -->
-
-    <div
-        class="modal"
-        id="certificateModal"
-        onclick="closeCertificate(event)"
+    <button
+        id="backToTop"
+        aria-label="Back to top"
     >
 
-        <div
-            class="modal-close"
-            onclick="closeCertificate()"
-        >
-            ×
-        </div>
+        <i class="fas fa-arrow-up"></i>
 
-        <img
-            id="modalImage"
-            src=""
-            alt="Certificate Preview"
-        >
+    </button>
+
+
+    <!-- =========================================
+         CERTIFICATE MODAL
+    ========================================== -->
+
+    <div
+        class="certificate-modal"
+        id="certificateModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeCertificate()"
+                aria-label="Close certificate"
+            >
+                &times;
+            </button>
+
+
+            <img
+                id="modalCertificateImage"
+                src=""
+                alt="Certificate"
+            >
+
+
+            <div
+                class="modal-title"
+                id="modalCertificateTitle"
+            ></div>
+
+        </div>
 
     </div>
 
 
-
-    <!-- =========================
+    <!-- =========================================
          JAVASCRIPT
-    ========================= -->
+    ========================================== -->
 
     <script>
 
-        /* Current year */
 
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+        /* =========================================
+           PAGE LOADER
+        ========================================== */
 
+        window.addEventListener("load", function() {
 
+            setTimeout(function() {
 
-        /* Certificate full-screen preview */
+                document
+                    .getElementById("page-loader")
+                    .classList.add("hidden");
 
-        function openCertificate(imagePath) {
+            }, 500);
 
-            const modal =
-                document.getElementById("certificateModal");
-
-            const modalImage =
-                document.getElementById("modalImage");
-
-            modalImage.src = imagePath;
-
-            modal.classList.add("active");
-
-            document.body.style.overflow = "hidden";
-        }
+        });
 
 
+        /* =========================================
+           MOBILE MENU
+        ========================================== */
 
-        function closeCertificate(event) {
+        const mobileMenu =
+            document.getElementById("mobileMenu");
 
-            if (
-                event &&
-                event.target &&
-                event.target.id !== "certificateModal" &&
-                !event.target.classList.contains("modal-close")
-            ) {
-                return;
-            }
-
-            const modal =
-                document.getElementById("certificateModal");
-
-            modal.classList.remove("active");
-
-            document.body.style.overflow = "auto";
-        }
+        const navLinks =
+            document.getElementById("navLinks");
 
 
+        mobileMenu.addEventListener("click", function() {
 
-        /* ESC key closes certificate */
+            navLinks.classList.toggle("open");
 
-        document.addEventListener("keydown", function(event) {
+            const icon =
+                mobileMenu.querySelector("i");
 
-            if (event.key === "Escape") {
 
-                const modal =
-                    document.getElementById("certificateModal");
+            if (navLinks.classList.contains("open")) {
 
-                modal.classList.remove("active");
+                icon.classList.remove("fa-bars");
 
-                document.body.style.overflow = "auto";
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
             }
 
         });
+
+
+        /* =========================================
+           CLOSE MOBILE MENU AFTER CLICK
+        ========================================== */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    navLinks.classList.remove("open");
+
+                    const icon =
+                        mobileMenu.querySelector("i");
+
+                    icon.classList.remove("fa-xmark");
+
+                    icon.classList.add("fa-bars");
+
+                });
+
+            });
+
+
+        /* =========================================
+           NAVBAR SCROLL
+        ========================================== */
+
+        const navbar =
+            document.getElementById("navbar");
+
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 40) {
+
+                navbar.classList.add("scrolled");
+
+            } else {
+
+                navbar.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* =========================================
+           ACTIVE NAVIGATION
+        ========================================== */
+
+        const sections =
+            document.querySelectorAll("section[id]");
+
+        const navigationLinks =
+            document.querySelectorAll(".nav-links a");
+
+
+        window.addEventListener("scroll", function() {
+
+            let currentSection = "";
+
+
+            sections.forEach(function(section) {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                const sectionHeight =
+                    section.offsetHeight;
+
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY < sectionTop + sectionHeight
+                ) {
+
+                    currentSection =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navigationLinks.forEach(function(link) {
+
+                link.classList.remove("active");
+
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + currentSection
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =========================================
+           CERTIFICATE MODAL
+        ========================================== */
+
+        function openCertificate(image, title) {
+
+            const modal =
+                document.getElementById(
+                    "certificateModal"
+                );
+
+
+            const modalImage =
+                document.getElementById(
+                    "modalCertificateImage"
+                );
+
+
+            const modalTitle =
+                document.getElementById(
+                    "modalCertificateTitle"
+                );
+
+
+            modalImage.src = image;
+
+            modalImage.alt = title;
+
+            modalTitle.textContent = title;
+
+
+            modal.classList.add("active");
+
+            document.body.classList.add("no-scroll");
+
+        }
+
+
+        function closeCertificate() {
+
+            const modal =
+                document.getElementById(
+                    "certificateModal"
+                );
+
+
+            const modalImage =
+                document.getElementById(
+                    "modalCertificateImage"
+                );
+
+
+            modal.classList.remove("active");
+
+            modalImage.src = "";
+
+            document.body.classList.remove(
+                "no-scroll"
+            );
+
+        }
+
+
+        /* =========================================
+           CLOSE MODAL ON BACKGROUND CLICK
+        ========================================== */
+
+        document
+            .getElementById("certificateModal")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        closeCertificate();
+
+                    }
+
+                }
+            );
+
+
+        /* =========================================
+           ESC KEY CLOSE
+        ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    closeCertificate();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           BACK TO TOP
+        ========================================== */
+
+        const backToTop =
+            document.getElementById(
+                "backToTop"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function() {
+
+                if (window.scrollY > 500) {
+
+                    backToTop.classList.add(
+                        "show"
+                    );
+
+                } else {
+
+                    backToTop.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+        backToTop.addEventListener(
+            "click",
+            function() {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+
+        /* =========================================
+           CURRENT YEAR
+        ========================================== */
+
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
+
 
     </script>
 
